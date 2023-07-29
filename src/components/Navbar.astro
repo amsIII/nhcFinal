@@ -1,0 +1,219 @@
+---
+const navLinks = [
+  { href: "/", title: "Home" },
+  { href: "/Services", title: "Services" },
+  { href: "/About", title: "About us" },
+  { href: "tel:2155555555", title: "T: 215-555-5555" },
+  { href: "/Contact", title: "Contact us" },
+];
+
+const img = {
+  src: "/logo/LOGO-NO TEXT.svg",
+  alt: "NHC Logo",
+};
+---
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo"> <img src={img.src} alt={img.alt} /></a>
+    <div class="mobile-nav-btn" id="mobile-nav-btn" aria-expanded="false">
+      <i class="fas fa-bars fa-lg" style="color: #274472;"></i>
+      <i class="fas fa-times fa-lg" style="color: #274472;"></i>
+    </div>
+    <ul class="nav-list" id="navList">
+      {
+        navLinks.map(({ href, title }) => (
+          <li class="nav-list__item">
+            <a href={href}>{title}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <!-- <a href="/Contact">Contact</a> -->
+  </div>
+</nav>
+
+<style lang="scss">
+  nav {
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    background-color: var(--light);
+    padding: 0.7rem 0;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    // LOGO
+    .logo {
+      display: block;
+      width: 80px;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    // END LOGO
+
+    // MOBILE NAV BUTTON
+    .mobile-nav-btn {
+      margin-left: auto;
+      display: grid;
+      place-items: center;
+
+      &[aria-expanded="false"] {
+        & > i.fa-bars {
+          display: block;
+        }
+        & > i.fa-times,
+        & ~ ul {
+          display: none;
+        }
+      }
+
+      &[aria-expanded="true"] {
+        & > i.fa-bars {
+          display: none;
+        }
+        & > i.fa-times {
+          display: block;
+        }
+        & ~ ul {
+          display: flex;
+        }
+      }
+
+      i.fas {
+        font-size: 2rem;
+        padding: 1rem;
+        padding-right: 0;
+      }
+      @media screen and (min-width: 992px) {
+        display: none;
+      }
+    }
+    // END MOBILE NAV BUTTON
+
+    // NAV LIST
+    .nav-list {
+      width: 100%;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+
+      // NAV LIST ITEMS
+      &__item {
+        font-weight: 500;
+        display: grid;
+        place-items: center;
+
+        &:not(:last-of-type) {
+          height: 44px;
+          opacity: 80%;
+          transition: var(--transition);
+
+          &:hover {
+            opacity: 100%;
+            transition: var(--transition);
+          }
+        }
+
+        &:last-of-type {
+          a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: block;
+            padding: 0.75rem 0.9rem;
+            background-color: var(--secondary);
+            border-radius: 10px;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+
+            &:hover {
+              transition: var(--transition);
+              background-color: var(--accent2);
+              color: var(--light);
+              // background-color: $secondary;
+              border-color: var(--secondary);
+            }
+          }
+        }
+
+        a {
+          // padding: 0.9rem;
+        }
+      }
+
+      // DESKTOP NAV LIST
+      @media screen and (min-width: 992px) {
+        // background-color: blue;
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.9rem;
+
+        &__item {
+          &:first-of-type {
+            margin-left: auto;
+          }
+          &:not(:last-of-type) {
+            a {
+              height: 44px;
+              padding: 1rem;
+            }
+          }
+          &:nth-child(4) {
+            margin-left: auto;
+          }
+          &:last-of-type {
+            a {
+              margin: 0;
+            }
+          }
+        }
+      }
+      // END DESKTOP NAV LIST
+    }
+    // END NAV LIST
+
+    @media screen and (min-width: 992px) {
+      // background-color: orange;
+      max-width: 960px;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+    @media screen and (min-width: 1200px) {
+      max-width: 1140px;
+      // background-color: red;
+    }
+    @media screen and (min-width: 1400px) {
+      max-width: 1320px;
+      // background-color: blue;
+    }
+  }
+</style>
+
+<script>
+  const mobileNavBtn = document.querySelector("#mobile-nav-btn");
+
+  function mobileNavToggle() {
+    const expanded = mobileNavBtn?.getAttribute("aria-expanded") === "true";
+
+    !expanded
+      ? mobileNavBtn?.setAttribute("aria-expanded", "true")
+      : mobileNavBtn?.setAttribute("aria-expanded", "false");
+  }
+
+  mobileNavBtn?.addEventListener("click", mobileNavToggle);
+</script>

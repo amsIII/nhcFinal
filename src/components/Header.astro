@@ -1,0 +1,105 @@
+---
+const heroImg = "/heroImg.jpeg"
+---
+
+<header>
+  <div class="container">
+    <section class="image">
+      <!-- <div></div> -->
+      <img src={heroImg} alt="">
+    </section>
+    <section class="text">
+      <div>
+        <h1>New Hope<br /><span>Caregivers</span></h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+          laudantium obcaecati? Delectus exercitationem sit expedita.
+        </p>
+      </div>
+    </section>
+  </div>
+</header>
+
+<style lang="scss">
+  header {
+    height: calc(100vh - 100px);
+    padding-top:  2.5rem;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+
+    .container {
+      height: auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      padding: 0 1rem;
+
+      .image {
+        // background-color: var(--accent1);
+        height: 100%;
+        width: 100%;
+        display: grid;
+        place-items: center;
+
+        img {
+          max-width: 100%;
+          height: auto;
+          object-fit: cover;
+          object-position: top;
+        }
+
+        div {
+          height: 100%;
+          width: 100%;
+          background-color: var(--accent2);
+          background: url("../../public/heroImg.jpeg") center center/cover;
+        }
+      }
+
+      .text {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        div {
+          text-align: center;
+
+          h1 {
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            line-height: 0.8;
+
+            span {
+              font-size: 2rem;
+            }
+          }
+          p {
+              display: block;
+              width: 100%;
+              max-width: 40ch;
+            }
+        }
+      }
+
+      @media screen and (min-width: 992px) {
+        // background-color: orange;
+        max-width: 950px;
+      }
+      @media screen and (min-width: 1200px) {
+        max-width: 1130px;
+        // background-color: red;
+      }
+      @media screen and (min-width: 1400px) {
+        max-width: 1310px;
+        // background-color: blue;
+      }
+    }
+  }
+</style>

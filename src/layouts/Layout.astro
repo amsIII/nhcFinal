@@ -1,0 +1,91 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+import Navbar from "../components/Navbar.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="../../scss/fontawesome.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../scss/styles.scss" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+  </body>
+</html>
+<style lang="scss" is:global>
+  :root {
+    --primary: #274472;
+    --secondary: #c3e0e5;
+    --accent1: #41729f;
+    --accent2: #5885af;
+    --accent3: #ff9483;
+    --accent5: #ffc757;
+    --light: #fefefe;
+    --dark: #232323;
+    --transition: all 400ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  html {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--light);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    color: var(--dark);
+    font-family: "Montserrat", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Lato", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    line-height: 1.4;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ul,
+  li {
+    list-style: none;
+  }
+</style>
