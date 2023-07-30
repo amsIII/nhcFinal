@@ -88,4 +88,18 @@ import Navbar from "../components/Navbar.astro";
   li {
     list-style: none;
   }
+
+  .container {
+    padding: 0 1rem;
+
+    @media screen and (min-width: 992px) {
+      max-width: 960px;
+    }
+    @media screen and (min-width: 1200px) {
+      max-width: 1140px;
+    }
+    @media screen and (min-width: 1400px) {
+      max-width: 1320px;
+    }
+  }
 </style>

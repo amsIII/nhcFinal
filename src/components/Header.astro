@@ -1,12 +1,12 @@
 ---
-const heroImg = "/heroImg.jpeg"
+const heroImg = "/heroImg.jpeg";
 ---
 
 <header>
   <div class="container">
     <section class="image">
       <!-- <div></div> -->
-      <img src={heroImg} alt="">
+      <img src={heroImg} alt="" />
     </section>
     <section class="text">
       <div>
@@ -22,8 +22,7 @@ const heroImg = "/heroImg.jpeg"
 
 <style lang="scss">
   header {
-    height: calc(100vh - 100px);
-    padding-top:  2.5rem;
+    padding-top: 7rem;
     width: 100vw;
     display: grid;
     place-items: center;
@@ -36,10 +35,9 @@ const heroImg = "/heroImg.jpeg"
       justify-content: center;
       align-items: center;
       gap: 2.5rem;
-      padding: 0 1rem;
+      padding: 0 2rem;
 
       .image {
-        // background-color: var(--accent1);
         height: 100%;
         width: 100%;
         display: grid;
@@ -52,12 +50,12 @@ const heroImg = "/heroImg.jpeg"
           object-position: top;
         }
 
-        div {
-          height: 100%;
-          width: 100%;
-          background-color: var(--accent2);
-          background: url("../../public/heroImg.jpeg") center center/cover;
-        }
+        // div {
+        //   height: 100%;
+        //   width: 100%;
+        //   background-color: var(--accent2);
+        //   background: url("../../public/heroImg.jpeg") center center/cover;
+        // }
       }
 
       .text {
@@ -80,25 +78,21 @@ const heroImg = "/heroImg.jpeg"
               font-size: 2rem;
             }
           }
+
           p {
-              display: block;
-              width: 100%;
-              max-width: 40ch;
-            }
+            display: block;
+            width: 100%;
+            max-width: 40ch;
+          }
         }
       }
+    }
+  }
 
-      @media screen and (min-width: 992px) {
-        // background-color: orange;
-        max-width: 950px;
-      }
-      @media screen and (min-width: 1200px) {
-        max-width: 1130px;
-        // background-color: red;
-      }
-      @media screen and (min-width: 1400px) {
-        max-width: 1310px;
-        // background-color: blue;
+  @media screen and (min-width: 992px) {
+    .header {
+      .container {
+        padding: 0 1.5rem;
       }
     }
   }
