@@ -23,11 +23,12 @@ const heroImg = "/heroImg.jpeg";
 
 <style lang="scss">
   header {
-    padding-top: 100px;
-    width: 100vw;
-    // height: 100vh;
+    padding-top: 78px;
+    max-width: 100vw;
     display: grid;
     place-items: center;
+
+    // BG Gradient
     background: -moz-radial-gradient(
       farthest-corner at 130px 150px,
       rgba(254, 254, 254, 1) 1%,
@@ -55,27 +56,28 @@ const heroImg = "/heroImg.jpeg";
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fefefe",endColorstr="#274472",GradientType=1);
 
     .container {
-      // height: auto;
       width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      // gap: 2.5rem;
       padding: 0 1.25rem;
+      padding-top: 1rem;
       overflow: hidden;
 
       .text {
         width: 100%;
-        flex-basis: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: -3rem;
+        margin-bottom: -2.75rem;
 
         @media screen and (max-width: 363.64px) {
           margin-bottom: -3rem;
+        }
+        @media screen and (max-width: 345px) {
+          margin-bottom: -2rem;
         }
 
         div {
