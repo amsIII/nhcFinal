@@ -11,6 +11,8 @@ const img = {
   src: "/logo/LOGO-NO TEXT.svg",
   alt: "NHC Logo",
 };
+
+// import GetStarted from "./Button.astro";
 ---
 
 <nav>
@@ -28,6 +30,9 @@ const img = {
           </li>
         ))
       }
+      <!-- <li class="nav-list__item">
+        <GetStarted href="/Contact" title="Contact us" />
+      </li> -->
     </ul>
     <!-- <a href="/Contact">Contact</a> -->
   </div>
@@ -41,6 +46,7 @@ const img = {
     width: 100vw;
     background-color: var(--light);
     color: var(--primary);
+    z-index: 1001;
     // padding: 0.7rem 0;
   }
 
@@ -116,6 +122,11 @@ const img = {
         display: grid;
         place-items: center;
 
+        &:active {
+          opacity: 100%;
+          color: red;
+        }
+
         &:not(:last-of-type) {
           height: 44px;
           opacity: 80%;
@@ -130,22 +141,22 @@ const img = {
         &:last-of-type {
           a {
             font-size: 1.1rem;
+            background-color: var(--secondary);
             font-weight: 500;
             display: block;
             padding: 0.75rem 0.9rem;
-            background-color: var(--secondary);
             border-radius: 10px;
-            // margin-top: 0.5rem;
-            // margin-bottom: 1rem;
             margin: 1rem 0;
+            // margin-top: 0.5rem;
+            margin-bottom: 3rem;
             transition: var(--transition);
 
             &:hover {
               transition: var(--transition);
               background-color: var(--accent2);
-              color: var(--light);
               // background-color: $secondary;
               border-color: var(--secondary);
+              color: var(--light);
             }
           }
         }
@@ -167,7 +178,7 @@ const img = {
           }
           &:not(:last-of-type) {
             a {
-              height: 44px;
+              min-height: 44px;
               padding: 0.5rem;
             }
           }
